@@ -7,7 +7,6 @@ from collections import defaultdict
 from typing import Dict, List, Tuple, Set, Optional
 
 
-
 class ExcelParser(Parser):
     def __init__(self, file_path: str):
         """
@@ -115,7 +114,6 @@ class ExcelParser(Parser):
                         self.set_parsed_cells_to_invalid(row_no, col_no, rowspan, colspan, valid_cols_for_rows)
                 offset += row_no
         return cell_map_dict
-    
 
     def load_workbook(self):
         data = self._read_file()
@@ -129,6 +127,8 @@ class ExcelParser(Parser):
         for row in cell_map_dict:
             for col, tag in cell_map_dict[row]:
                 cell_value = self._pre_validate_and_format(row, col, tag)
+                # get styles from cells
+                # and give them to _write_cell function
                 self._write_cell(row, col, cell_value)
 
     def to_excel(self, save_file_path: str) -> None:

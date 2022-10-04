@@ -85,7 +85,6 @@ class Parser:
 
         # TODO: Handle bold, italics and other attributes
         return col.text.strip()
-            
 
     def _write_cell(self, row: int, col: int, val: str) -> None:
         """
@@ -99,6 +98,7 @@ class Parser:
             val : str
                     Value to write in cell
         """
+        # here need to set styles of ws.cell
         self.ws.cell(row=row, column=col).value = val
 
     def get_workbook(self) -> Workbook:
