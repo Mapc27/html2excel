@@ -6,3 +6,5 @@ tmp/
 build/
 dist/
 **tests/
+
+.idea
